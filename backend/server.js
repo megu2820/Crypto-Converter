@@ -23,6 +23,7 @@ const api = axios.create({
     headers: {
         'X-CMC_PRO_API_KEY': process.env.COINMARKETCAP_API_KEY,
         Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
         'Accept-Encoding': 'deflate, gzip',
     },
 });
