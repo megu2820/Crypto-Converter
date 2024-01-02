@@ -2,7 +2,9 @@ require('dotenv').config();
 
 const cors = require('cors');
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    allowedHeaders: ['Content-Type'],
+    origin: '*',
+    preflightContinue: true,
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
@@ -23,7 +25,6 @@ const api = axios.create({
     headers: {
         'X-CMC_PRO_API_KEY': process.env.COINMARKETCAP_API_KEY,
         Accept: 'application/json',
-        'Access-Control-Allow-Origin': '*',
         'Accept-Encoding': 'deflate, gzip',
     },
 });
