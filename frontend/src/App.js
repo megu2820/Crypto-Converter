@@ -16,7 +16,12 @@ function App() {
 
   async function getCryptoCurrencies() {
     try {
-      const res = await fetch('https://crypto-converter-5g4a.onrender.com/api');
+      const res = await fetch('https://crypto-converter-5g4a.onrender.com/api', {
+        method: 'GET',
+        headers: {
+          accept: 'application/json'
+        }
+      });
       const data = await res.json();
       setCryptos(data);
       // console.log(data);
@@ -27,7 +32,12 @@ function App() {
 
   async function getSourceCurrencies() {
     try {
-      const res = await fetch('https://crypto-converter-5g4a.onrender.com/target/api');
+      const res = await fetch('https://crypto-converter-5g4a.onrender.com/target/api', {
+        method: 'GET',
+        headers: {
+          accept: 'application/json'
+        }
+      });
       const data = await res.json();
       setTargetCurrencies(data);
       // console.log(data);
@@ -60,7 +70,12 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await fetch(`https://crypto-converter-5g4a.onrender.com/convert/api?amount=${values.amount}&symbol=${values.sourceCurr}&convert=${values.targetCurr}`);
+      const res = await fetch(`https://crypto-converter-5g4a.onrender.com/convert/api?amount=${values.amount}&symbol=${values.sourceCurr}&convert=${values.targetCurr}`, {
+        method: 'GET',
+        headers: {
+          accept: 'application/json'
+        }
+      });
       const output = await res.json();
       // console.log(output[0], 'I m output')
       setOutput(output[0].quote[values.targetCurr].price)
