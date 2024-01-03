@@ -2,11 +2,12 @@ require('dotenv').config();
 
 const cors = require('cors');
 const corsOptions = {
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'accept'],
     origin: '*',
     preflightContinue: true,
     credentials: true,            //access-control-allow-credentials:true
-    optionSuccessStatus: 200
+    optionSuccessStatus: 200,
+    methods: ['GET']
 }
 
 
